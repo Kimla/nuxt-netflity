@@ -1,3 +1,5 @@
+const axios = require('axios');
+
 module.exports = {
   /*
   ** Headers of the page
@@ -12,6 +14,16 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
+  },
+  generate: {
+    routes: function () {
+      return axios.get('https://jsonplaceholder.typicode.com/posts')
+      .then((res) => {
+        return res.data.map((post) => {
+          return '/posts/' + post.id
+        })
+      })
+    }
   },
   /*
   ** Customize the progress bar color
