@@ -14,6 +14,9 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
+  font-weight: 300;
+  color: #35495e;
+  padding: 15px;
 }
 
 *, *:before, *:after {
