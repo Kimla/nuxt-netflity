@@ -1,9 +1,26 @@
 <template>
-    <div class="single-post ">
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.body }}</p>
+    <div class="single-post">
 
-        <router-link to="/">Back</router-link>
+        <section class="hero is-primary">
+
+          <div class="hero-body">
+            <div class="container has-text-centered">
+              <h1 class="title">
+                {{ post.title }}
+              </h1>
+            </div>
+          </div>
+
+        </section>
+
+        <section class="section">
+            <div class="container" style="max-width:700px;margin:0 auto;">
+                <p class="is-size-5" style="margin-bottom:30px;">{{ post.body }}</p>
+                <router-link class="button" to="/">Back</router-link>
+            </div>
+        </section>
+
+
     </div>
 </template>
 
@@ -27,10 +44,3 @@ export default {
     }
 }
 </script>
-
-<style>
-.single-post {
-    width: 800px;
-    margin: 0 auto;
-}
-</style>

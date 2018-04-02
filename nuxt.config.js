@@ -17,12 +17,19 @@ module.exports = {
   },
   generate: {
     routes: function () {
-      return axios.get('https://jsonplaceholder.typicode.com/posts')
-      .then((res) => {
-        return res.data.map((post) => {
-          return '/posts/' + post.id
+        let pages = axios.get('https://playground.kimlarsson.se/wp-json/menus/v1/menus/primary').then((res) => {
+            return res.data.items.map((item) => {
+              return '/' + item.object_id
+            })
         })
-      })
+        let posts = axios.get('https://jsonplaceholder.typicode.com/posts').then((res) => {
+            return res.data.map((post) => {
+              return '/posts/' + post.id
+            })
+        })
+        return Promise.all([pages, posts]).then(values => {
+            return values.join().split(',');
+        })
     }
   },
   /*

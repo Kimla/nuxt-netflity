@@ -1,9 +1,32 @@
 <template>
-    <div class="posts">
-        <router-link :to="`/posts/${post.id}`" class="post" v-for="post in posts" :key="post.id">
-            <h2>{{ post.title }}</h2>
-            <p>{{ post.body }}</p>
-        </router-link>
+    <div>
+        <section class="hero is-primary">
+
+          <div class="hero-body">
+            <div class="container has-text-centered">
+              <h1 class="title">
+                Blogg
+              </h1>
+            </div>
+          </div>
+
+        </section>
+        <div class="section">
+
+            <div class="container">
+                <router-link :to="`/posts/${post.id}`" v-for="post in posts" :key="post.id">
+                    <div class="card" style="margin-bottom:20px;">
+
+                          <div class="card-content">
+                              <p class="title is-4">{{ post.title }}</p>
+                            <div class="content">
+                              {{ post.body }}
+                            </div>
+                          </div>
+                    </div>
+                </router-link>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -22,14 +45,5 @@ export default {
 </script>
 
 <style>
-.posts {
-    width: 800px;
-    margin: 0 auto;
-}
-.post {
-    margin-bottom: 30px;
-    display: block;
-    text-decoration: none;
-    color: inherit;
-}
+
 </style>
